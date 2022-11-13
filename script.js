@@ -11,7 +11,7 @@ fetch(url)
       authors = data;
       console.log(authors)
       let htmlcode = ` `;
-      data.forEach(function(t1) {
+      authors.forEach(function(t1) {
         htmlcode = htmlcode +`
                 <tr class="data-row">
                 <td class="column1">${t1.id}</td>
@@ -55,28 +55,29 @@ fetch(url)
              $("#info-content").html (htmlCode1);
         });
     });
-    document.getElementById("search-box").addEventListener("keydown", my);
-
-function my() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("search-box");
-    console.log(input.value)
-    filter = input.value.toUpperCase();
-    table = document.getElementById("loop")
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[1];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
-      }       
-    }
-  }
+   
 
     })
 
+    document.getElementById("search-box").addEventListener("keydown", my);
 
+    function my() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("search-box");
+        console.log(input.value)
+        filter = input.value.toUpperCase();
+        table = document.getElementById("loop")
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[1];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }       
+        }
+      }
+      console.log(authors)
